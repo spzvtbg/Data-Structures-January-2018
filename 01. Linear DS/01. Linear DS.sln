@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Count of Occurrences", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Reversed List", "06. Reversed List\06. Reversed List.csproj", "{2D432098-8EC6-4C56-913C-69A4CD2DD3C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Distance in Labyrinth", "07. Distance in Labyrinth\07. Distance in Labyrinth.csproj", "{F7476225-BA2F-4383-9948-3D55BF3A3536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZDemosForRecursion", "ZDemosForRecursion\ZDemosForRecursion.csproj", "{D169884F-7BD2-4DBA-949D-235EBA26A8CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{2D432098-8EC6-4C56-913C-69A4CD2DD3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D432098-8EC6-4C56-913C-69A4CD2DD3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D432098-8EC6-4C56-913C-69A4CD2DD3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7476225-BA2F-4383-9948-3D55BF3A3536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7476225-BA2F-4383-9948-3D55BF3A3536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7476225-BA2F-4383-9948-3D55BF3A3536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7476225-BA2F-4383-9948-3D55BF3A3536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
