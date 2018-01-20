@@ -1,70 +1,133 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 
 public class Program
-{
-    public static int row = -1;
+{ 
+    public const int forbidenCell = -2;
+    public const int reachableCell = -1;
+    public const int startPosition = 0;
+    
+    public static int labirintLength;
+    public static int[,] labirintMatrix;
 
-    public static int tempRow;
-
-    public static int col = -1;
-
-    public static int tempCol;
-
-    public static int count = 0;
-
-    public static string[][] LabirintMatrix;
+    public static Queue<Position> backPoints = new Queue<Position>();
 
     public static void Main()
     {
         InitializeQuadraticMatrixField(Convert.ToInt32(Console.ReadLine()));
-        GetNextCell(row, col, count);
-
-        for (int row = 0; row < LabirintMatrix.GetLength(0); row++)
-        {
-            for (int col = 0; col < LabirintMatrix.GetLength(1); col++)
-            {
-                if (LabirintMatrix[row][col] == "0")
-                {
-                    LabirintMatrix[row][col] = "u";
-                }
-                Console.Write(LabirintMatrix[row][col]);
-            }
-        }
-    }
-
-    public static void GetNextCell(int row, int col, int count)
-    {
-        count++;
-        GetNextCell(row++, col, count);
-        GetNextCell(row, col++, count);
-        GetNextCell(row--, col, count);
-        GetNextCell(row, col--, count);
+        FindPathsFromStartPosition();
+        PrintFoundetPaths();
     }
 
     public static void InitializeQuadraticMatrixField(int size)
     {
-        LabirintMatrix = new string[size][];
+        labirintLength = size;
+        labirintMatrix = new int[size, size];
 
-        for (int index = 0; index < size; index++)
+        for (int row = 0; row < size; row++)
         {
-            var currentSymbols = Console.ReadLine();
-            var temporaryIndex = currentSymbols.IndexOf('*');
+            string currentRowValue = Console.ReadLine();
 
-            if (temporaryIndex > col)
+            for (int col = 0; col < size; col++)
             {
-                row = index;
-                col = temporaryIndex;
+                if (currentRowValue[col] == '0')
+                {
+                    labirintMatrix[row, col] = reachableCell;
+                }
+                else if (currentRowValue[col] == 'x')
+                {
+                    labirintMatrix[row, col] = forbidenCell;
+                }
+                else if (currentRowValue[col] == '*')
+                {
+                    labirintMatrix[row, col] = startPosition;
+                    backPoints.Enqueue(new Position(row, col, startPosition));
+                }
             }
-
-            LabirintMatrix[index] = currentSymbols
-                .ToCharArray()
-                .Select(x => x.ToString())
-                .ToArray();
         }
     }
 
-    public static bool IsValidIndex(int index) => index >= 0 && index < LabirintMatrix.Length;
+    public static void FindPathsFromStartPosition()
+    {
+        while (backPoints.Count > 0)
+        {
+            Position currentPosition = backPoints.Dequeue();
 
-    public static bool IsValidRoute(string symbol) => symbol != "x"; 
+            int currentRow = currentPosition.Row;
+            int currentCol = currentPosition.Col;
+
+            int left = currentCol - 1;
+            int up = currentRow - 1;
+            int right = currentCol + 1;
+            int down = currentRow + 1;
+
+            int value = currentPosition.Value + 1;
+
+            if (left >= 0 && labirintMatrix[currentRow, left] == reachableCell)
+            {
+                labirintMatrix[currentRow,left] = value;
+                backPoints.Enqueue(new Position(currentRow, left, value));
+            }
+            if (up >= 0 && labirintMatrix[up, currentCol] == reachableCell)
+            {
+                labirintMatrix[up, currentCol] = value;
+                backPoints.Enqueue(new Position(up, currentCol, value));
+            }
+            if (right < labirintLength && labirintMatrix[currentRow, right] == reachableCell)
+            {
+                labirintMatrix[currentRow, right] = value;
+                backPoints.Enqueue(new Position(currentRow, right, value));
+            }
+            if (down < labirintLength && labirintMatrix[down, currentCol] == reachableCell)
+            {
+                labirintMatrix[down, currentCol] = value;
+                backPoints.Enqueue(new Position(down, currentCol, value));
+            }
+        }
+    }
+
+    public static void PrintFoundetPaths()
+    {
+        for (int row = 0; row < labirintLength; row++)
+        {
+            for (int col = 0; col < labirintLength; col++)
+            {
+                int currentValue = labirintMatrix[row, col];
+
+                if (currentValue > startPosition)
+                {
+                    Console.Write(currentValue);
+                }
+                else if (currentValue == reachableCell)
+                {
+                    Console.Write('u');
+                }
+                else if (currentValue == forbidenCell)
+                {
+                    Console.Write('x');
+                }
+                else if (currentValue == startPosition)
+                {
+                    Console.Write('*');
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+public class Position
+{
+    public Position(int row, int col, int value)
+    {
+        this.Row = row;
+        this.Col = col;
+        this.Value = value;
+    }
+
+    public int Row { get; set; }
+
+    public int Col { get; set; }
+
+    public int Value { get; set; }
 }
