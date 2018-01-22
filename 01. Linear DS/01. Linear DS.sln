@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayList", "ArrayList\ArrayList.csproj", "{78E97762-296F-4096-AB58-BE823428BD3E}"
 EndProject
@@ -24,6 +24,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Distance in Labyrinth", "07. Distance in Labyrinth\07. Distance in Labyrinth.csproj", "{F7476225-BA2F-4383-9948-3D55BF3A3536}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZDemosForRecursion", "ZDemosForRecursion\ZDemosForRecursion.csproj", "{D169884F-7BD2-4DBA-949D-235EBA26A8CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQ01. Reverse Numbers", "SQ01. Reverse Numbers\SQ01. Reverse Numbers.csproj", "{A016BDE0-3D2E-4BB8-A77F-6D8A94583AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQ02. Calculate Sequence", "SQ02. Calculate Sequence\SQ02. Calculate Sequence.csproj", "{3AE86ABF-F732-4DF1-AFD2-07F76909CFB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQ03. Array Stack", "SQ03. Array Stack\SQ03. Array Stack.csproj", "{1368323D-AB24-4E18-BD7C-39584AE8ABC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +81,18 @@ Global
 		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D169884F-7BD2-4DBA-949D-235EBA26A8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A016BDE0-3D2E-4BB8-A77F-6D8A94583AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A016BDE0-3D2E-4BB8-A77F-6D8A94583AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A016BDE0-3D2E-4BB8-A77F-6D8A94583AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A016BDE0-3D2E-4BB8-A77F-6D8A94583AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE86ABF-F732-4DF1-AFD2-07F76909CFB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE86ABF-F732-4DF1-AFD2-07F76909CFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE86ABF-F732-4DF1-AFD2-07F76909CFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE86ABF-F732-4DF1-AFD2-07F76909CFB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1368323D-AB24-4E18-BD7C-39584AE8ABC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1368323D-AB24-4E18-BD7C-39584AE8ABC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1368323D-AB24-4E18-BD7C-39584AE8ABC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1368323D-AB24-4E18-BD7C-39584AE8ABC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
