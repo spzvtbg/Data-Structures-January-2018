@@ -1,46 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public class Program
 {
     public static void Main()
-    { 
+    {
+        //Stack<int> stack = new Stack<int>();
+        //ArrayStack<int> stack = new ArrayStack<int>();
+        //stack.Push(1);
+        //stack.Push(2);
+        //stack.Push(3);
+        //stack.Push(4);
+        //stack.Push(5);
+        //stack.Push(6);
+        //stack.Push(7);
+
+        //Console.WriteLine(stack.Pop());
+
+        //Console.WriteLine(stack.Count);
+
+        //Console.WriteLine(string.Join(", ", stack.ToArray()));
     }
 }
 
 public class ArrayStack<T>
 {
-    private T[] elements;
-    private int count;
-
-    public int Count
-    {
-        get
-        {
-            return this.count;
-        }
-
-        private set
-        {
-            if (value < 0 || value > this.elements.Length)
-            {
-                throw new IndexOutOfRangeException("Count property cannot be negative or bigger than array size!");
-            }
-
-            this.count = value;
-        }
-    }
-
     private const int InitialCapacity = 16;
+
+    private T[] elements;
 
     public ArrayStack(int capacity = InitialCapacity)
     {
         this.elements = new T[capacity];
     }
 
+    public int Count { get; private set; }
+
     public void Push(T element)
     {
-        if (this.Count == this.elements.Length - 1)
+        if (this.Count >= this.elements.Length)
         {
             this.Grow();
         }
@@ -53,49 +52,32 @@ public class ArrayStack<T>
     {
         if (this.Count <= 0)
         {
-            throw new InvalidOperationException("Poping from empty stack!");
-        }
-
-        if (this.elements.Length > this.Count * 2)
-        {
-            this.Trim();
+            throw new InvalidOperationException();
         }
 
         this.Count--;
-        var result = this.elements[this.Count];
+        T element = this.elements[this.Count];
         this.elements[this.Count] = default(T);
-        return result;
+
+        return element;
     }
 
     public T[] ToArray()
     {
-        T[] result = new T[this.Count];
-        Array.Copy(this.elements, result, this.Count);
-        //result.Reverse();
-        return result;
+        T[] temporary = new T[this.Count];
+
+        for (int index = 0; index < this.Count; index++)
+        {
+            temporary[index] = this.elements[this.Count - 1 - index];
+        }
+
+        return temporary;
     }
 
     private void Grow()
     {
-        var tempArray = new T[this.elements.Length * 2];
-
-        for (int i = 0; i < this.Count; i++)
-        {
-            tempArray[i] = this.elements[i];
-        }
-
-        this.elements = tempArray;
-    }
-
-    private void Trim()
-    {
-        var tempArray = new T[this.elements.Length / 2];
-
-        for (int i = 0; i < this.Count; i++)
-        {
-            tempArray[i] = this.elements[i];
-        }
-
-        this.elements = tempArray;
+        T[] temporary = new T[this.elements.Length * 2];
+        Array.Copy(this.elements, temporary, this.Count);
+        this.elements = temporary;
     }
 }
